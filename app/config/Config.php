@@ -11,10 +11,10 @@ class AppConfig
             'hostname' => 'localhost',
             'username' => 'root',
             'password' => '',
-            'database' => 'bigdealpro'
+            'database' => ''
         ];
         $live = [
-            'hostname' => '',
+            'hostname' => 'localhost',
             'username' => '',
             'password' => '',
             'database' => ''

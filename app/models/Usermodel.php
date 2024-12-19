@@ -9,8 +9,6 @@ class Usermodel extends Model
 
     function getAllUsers(): array
     {
-        $sql = "SELECT * FROM ai_users LIMIT 10";
-        $result = $this->db->query($sql)->result();
-        return $result;
+        return [];
     }
 }

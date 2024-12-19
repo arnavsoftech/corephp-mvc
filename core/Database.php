@@ -743,5 +743,8 @@ class Database
 
 function db_connect()
 {
-    return Database::instance();
+    $cfg = new AppConfig();
+    $dbConfig = $cfg->getDatabaseConfig();
+    $db = new Database($dbConfig['database'], $dbConfig['username'], $dbConfig['password']);
+    return $db;
 }
