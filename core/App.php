@@ -13,13 +13,13 @@ class App
 
         if (!isset($url[0])) {
             $this->setDefaultRoute();
-        } else if (file_exists('app/controllers/' . ucfirst($url[0]) . '.php')) {
+        } else if (file_exists('apps/controllers/' . ucfirst($url[0]) . '.php')) {
             $this->controller = ucfirst($url[0]);
             unset($url[0]);
         } else {
             die('404 Page Not Found');
         }
-        require_once 'app/controllers/' . $this->controller . '.php';
+        require_once 'apps/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
 
         $method = @str_replace('-', '_', $url[1]);
@@ -52,25 +52,25 @@ class App
 
     public function autoload()
     {
-        include_once BASE_PATH . "app/config/Config.php";
+        include_once BASE_PATH . "apps/config/Config.php";
         include_once BASE_PATH . "core/Database.php";
         include_once BASE_PATH . "core/Controller.php";
         include_once BASE_PATH . "core/Model.php";
         include_once BASE_PATH . "core/App.php";
 
-        $modelFiles = scandir(BASE_PATH . 'app/models/');
+        $modelFiles = scandir(BASE_PATH . 'apps/models/');
         foreach ($modelFiles as $file) {
             if ($file == '.' || $file == '..') continue;
-            $filePath = BASE_PATH . 'app/models/' . $file;
+            $filePath = BASE_PATH . 'apps/models/' . $file;
             if (is_file($filePath)) {
                 include $filePath;
             }
         }
 
-        $helperFiles = scandir(BASE_PATH . 'app/helpers/');
+        $helperFiles = scandir(BASE_PATH . 'apps/helpers/');
         foreach ($helperFiles as $file) {
             if ($file == '.' || $file == '..') continue;
-            $filePath = BASE_PATH . 'app/helpers/' . $file;
+            $filePath = BASE_PATH . 'apps/helpers/' . $file;
             if (is_file($filePath)) {
                 include $filePath;
             }
