@@ -17,7 +17,7 @@ class App
             $this->controller = ucfirst($url[0]);
             unset($url[0]);
         } else {
-            die('404 Page Not Found');
+            die('<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">404 Page Not Found</div>');
         }
         require_once 'apps/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;

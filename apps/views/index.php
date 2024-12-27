@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>Welcome to MVC App</h1>
+    <h1>Welcome to MVC App <?= $name; ?> and Your Mobile is <?= $mobile; ?></h1>
     <p>Setup your Database details to Get Started</p>
 </body>
 

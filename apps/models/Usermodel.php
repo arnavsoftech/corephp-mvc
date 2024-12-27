@@ -6,9 +6,4 @@ class Usermodel extends Model
     {
         parent::__construct();
     }
-
-    function getAllUsers(): array
-    {
-        return [];
-    }
 }
